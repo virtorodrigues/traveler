@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 const Card = () => (
-  <div className="w-64 shadow rounded-2xl overflow-hidden my-5">
+  <div className="w-64 shadow rounded-2xl overflow-hidden">
     <Image
       src={'/../public/florianopolis.jpg'}
       alt="My Image"

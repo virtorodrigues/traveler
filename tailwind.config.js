@@ -9,6 +9,8 @@ module.exports = {
       ...colors,
       primary: "#123952",
       secondary: "#F25D27",
+      background: "#F5F8FA",
+      border: "#DCE2E6",
     },
     fontFamily: {
       sans: ['Barlow', 'sans-serif'],

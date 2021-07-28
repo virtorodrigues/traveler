@@ -4,7 +4,7 @@ import Image from 'next/image';
 const Card = () => (
   <div className="w-64 shadow rounded-2xl overflow-hidden">
     <Image
-      src={'/../public/florianopolis.jpg'}
+      src={'/../public/florianopolis.svg'}
       alt="My Image"
       width={300}
       height={200}

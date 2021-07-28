@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import Card from '../components/cards/CardCity';
 import Home from './Home';
 import CityList from './CityList';
+import CityDetail from './CityDetail';
 import 'tailwindcss/tailwind.css'
 
 export default function Index() {

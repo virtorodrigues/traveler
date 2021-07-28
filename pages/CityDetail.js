@@ -1,7 +1,11 @@
 import React from 'react';
+import Header from '../components/Header';
 
 const CityDetail = () => (
-  <div>CityDetail</div>
+  <div>
+    <Header />
+
+  </div>
 )
 
 export default CityDetail;

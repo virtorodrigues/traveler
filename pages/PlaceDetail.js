@@ -1,26 +1,9 @@
 import React, { useCallback } from 'react';
 import Header from '../components/Header';
 import Image from 'next/image';
-import TitleWithActions from '../components/TitleWithActions';
+import Map from '../components/Map';
 
 const PlaceDetail = () => {
-
-  const CardInformation = useCallback(({ img, description, number }) => (
-    <div className="w-32 border rounded-2xl bg-white">
-      <div className="p-4 flex">
-        <Image
-          src={`/../public/${img}.svg`}
-          alt="My Image"
-          width={30}
-          height={30}
-        />
-      </div>
-      <div className="p-4 text-left border-t">
-        <strong className="font-bold text-gray-800 text-2xl">{number}</strong>
-        <p className="text-gray-500 font-medium text-xs pt-2">{description}</p>
-      </div>
-    </div>
-  ), []);
 
   const CardServiceHour = useCallback(({ description, hour }) => (
     <div className="border rounded-xl bg-white p-5">
@@ -28,6 +11,26 @@ const PlaceDetail = () => {
       <strong className="block pt-2 font-bold text-primary">{hour}</strong>
     </div>
   ), []);
+
+  const RatingsCard = () => {
+    return (
+      <div className="flex gap-5 max-w-sm pt-3">
+        <div>
+          <Image
+            src={`/../public/homem.svg`}
+            alt="My Image"
+            width={64}
+            height={64}
+          />
+
+        </div>
+        <div className="pt-1 border-b pb-4">
+          <span className="text-primary font-semibold">Patrick</span>
+          <p className="pt-2 text-sm text-primary">Grande variedade de bolos, cucas, tortas e algumas opções de salgados.</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -48,16 +51,33 @@ const PlaceDetail = () => {
 
       <section className="flex justify-center p-10">
         <div className="max-w-screen-lg w-full">
-          <h1 className="text-3xl font-bold text-primary">Atendimento</h1>
+          <h1 className="text-2xl font-bold text-primary pb-2 border-b mb-7 max-w-lg">Atendimento</h1>
 
           <div className="flex gap-5 pt-7">
-            <CardServiceHour description={'Domingo'} hour={'Fechado'} />
-            <CardServiceHour description={'Segunda'} hour={'8h - 19h'} />
-            <CardServiceHour description={'Terça'} hour={'8h - 19h'} />
-            <CardServiceHour description={'Quarta'} hour={'8h - 19h'} />
-            <CardServiceHour description={'Quinta'} hour={'8h - 19h'} />
-            <CardServiceHour description={'Sexta'} hour={'8h - 19h'} />
-            <CardServiceHour description={'Sábado'} hour={'8h - 17h'} />
+            <ul className="flex gap-5 pt-7">
+              <li>
+                <CardServiceHour description={'Domingo'} hour={'Fechado'} />
+              </li>
+              <li>
+                <CardServiceHour description={'Segunda'} hour={'8h - 19h'} />
+              </li>
+              <li>
+                <CardServiceHour description={'Terça'} hour={'8h - 19h'} />
+              </li>
+              <li>
+                <CardServiceHour description={'Quarta'} hour={'8h - 19h'} />
+              </li>
+              <li>
+                <CardServiceHour description={'Quinta'} hour={'8h - 19h'} />
+              </li>
+              <li>
+                <CardServiceHour description={'Sexta'} hour={'8h - 19h'} />
+              </li>
+              <li>
+                <CardServiceHour description={'Sábado'} hour={'8h - 17h'} />
+              </li>
+            </ul>
+
           </div>
 
           <div className="pt-10 flex gap-10">
@@ -79,45 +99,37 @@ const PlaceDetail = () => {
         </div>
       </section>
 
-
-
       <section className="flex justify-center p-10">
-        <div className="max-w-screen-lg w-full bg-white flex justify-between border rounded-2xl overflow-hidden">
-          <div className="p-10">
-            <button className="bg-orange-600 rounded-2xl flex gap-2 px-3 py-1 text-white items-center">
-              <Image
-                src={`/../public/information.svg`}
-                alt="My Image"
-                width={20}
-                height={20}
-              />
-              <p className="text-xs font-semibold">Destaque</p>
-            </button>
-            <h1 className="text-3xl font-bold text-primary pt-7">Praia dos Ingleses</h1>
-            <h2 className="text-sm font-semibold text-primary py-5">Uma parte do paraíso na terra. Frequentemente com águas
-              claras em tons verdes e azuis. Um dos locais mais preferidos
-              por turistas e viajantes.</h2>
-          </div>
+        <div className="max-w-screen-lg w-full">
+          <h1 className="text-2xl font-bold text-primary pb-2 border-b mb-7 max-w-lg">Endereço</h1>
 
-          <Image
-            src={`/../public/pic-dest.svg`}
-            alt="My Image"
-            width={1500}
-            height={700}
-          />
+          <Map />
         </div>
       </section>
 
+      <section className="flex justify-center p-10">
+        <div className="max-w-screen-lg w-full">
+          <h1 className="text-2xl font-bold text-primary pb-2 border-b mb-7 max-w-lg">Avaliações</h1>
 
+          <ul>
+            <li>
+              <RatingsCard />
+            </li>
+            <li>
+              <RatingsCard />
+            </li>
+            <li>
+              <RatingsCard />
+            </li>
+            <li>
+              <RatingsCard />
+            </li>
+          </ul>
+
+        </div>
+      </section>
     </>
   )
 }
-
-const actions = [
-  { active: true, text: "Todos" },
-  { active: false, text: "Pontos Turísticos" },
-  { active: false, text: "Comida & Bebida" },
-  { active: false, text: "Eventos Organizados" },
-]
 
 export default PlaceDetail;
